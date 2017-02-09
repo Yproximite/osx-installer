@@ -2,34 +2,45 @@
 - hosts: localhost
   roles:
     - homebrew-cask
-    - { role: vagrant, plugins: ['landrush']}
-    - { role: oh-my-zsh, plugins: "git"}
+    - { role: vagrant, plugins: ['vagrant-hostmanager']}
+    - { role: oh-my-zsh, plugins: ['composer', 'git', 'symfony2']}
     - git
 
   vars_prompt:
-    user_name: "what is your name?"
-    user_email: "what is your email?"
+    user_name: "Quel est votre prénom nom ?"
+    user_email: "Quel est votre email (configuré sur votre github ?) ?"
 
   vars:
     applications:
-      - adium
-      - dropbox
-      - owncloud
-      - skype
+      - google-chrome
+      - firefox
+      - sublime-text
+      - phpstorm-eap
+      - slack
+      - google-drive
       - vagrant-manager
+      - spotify
+      - skitch
+      - adobe-photoshop-cc
+      - sequel-pro
+      - the-unarchiver
+      - openoffice
+      - github-desktop
 
   tasks:
     # Install application with brew cask
     - name: Install applications with cask
-      homebrew_cask: name={{ item }} state=present
+      homebrew_cask:
+        name: "{{ item }}"
+        state: present
       with_items: applications
 
     # git configuration
     - name: global .gitignore
-      template: >
-        src=templates/git/gitignore.j2
-        dest={{ ansible_env.HOME }}/.gitignore
+      template:
+        src: templates/git/gitignore.j2
+        dest: "{{ ansible_env.HOME }}/.gitignore"
     - name: .gitconfig
-      template: >
-        src=templates/git/gitconfig.j2
-        dest={{ ansible_env.HOME }}/.gitconfig
+      template:
+        src: templates/git/gitconfig.j2
+        dest: "{{ ansible_env.HOME }}/.gitconfig"
