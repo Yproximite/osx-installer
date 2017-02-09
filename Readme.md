@@ -10,10 +10,10 @@ Easily configure your osx installation with our standard stack
 ## Requirements
 
 In order to run this script you need to install:
- - the osx command line tools, 
- - homebrew
- - homebrew cask
- - ansible
+ - the osx command line tools (`make`), 
+ - [homebrew](http://brew.sh/index_fr.html)
+ - homebrew cask (`brew install cask`)
+ - ansible (`brew install ansible`)
 
 ## Installation
 
