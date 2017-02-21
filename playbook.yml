@@ -33,13 +33,14 @@
       homebrew_cask:
         name: "{{ item }}"
         state: present
-      with_items: applications
+      with_items: "{{ applications }}"
 
     # git configuration
     - name: global .gitignore
       template:
         src: templates/git/gitignore.j2
         dest: "{{ ansible_env.HOME }}/.gitignore"
+
     - name: .gitconfig
       template:
         src: templates/git/gitconfig.j2

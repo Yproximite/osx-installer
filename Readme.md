@@ -13,6 +13,7 @@ In order to run this script you need to install:
  - the osx command line tools (`make`), 
  - [homebrew](http://brew.sh/index_fr.html)
  - homebrew cask (`brew install cask`)
+ - wget (`brew install wget`)
  - ansible (`brew install ansible`)
 
 ## Installation
