@@ -23,7 +23,7 @@
   lineinfile:
     dest: "{{ ansible_env.HOME }}/.zshrc"
     line: "plugins=({{ plugins }})"
-    regexp: "plugins=\(.*\)"
+    regexp: 'plugins=\(.*\)'
 
 - name: shell
   shell: chsh -s /bin/zsh
