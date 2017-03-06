@@ -8,6 +8,7 @@
   homebrew:
     name: brew-cask
     state: present
+  ignore_errors: yes
 
 - name: tap caskroom/versions
   homebrew_tap:
